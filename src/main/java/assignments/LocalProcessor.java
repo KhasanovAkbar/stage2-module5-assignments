@@ -28,7 +28,7 @@ public class LocalProcessor {
         this.processorVersion = processorVersion;
         this.valueOfCheap = valueOfCheap;
         this.informationscanner = informationscanner;
-        LocalProcessor.stringArrayList = new LinkedList<>(stringArrayList);
+        this.stringArrayList = new LinkedList<>(stringArrayList);
     }
 
     public LocalProcessor() {
