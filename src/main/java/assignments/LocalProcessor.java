@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 @Getter
@@ -19,7 +20,7 @@ public class LocalProcessor {
     private StringBuilder processorVersion;
     private Integer valueOfCheap;
     private Scanner informationScanner;
-    private static LinkedList<String> stringArrayList = new LinkedList<>();
+    private  List<String> stringArrayList = new LinkedList<>();
 
     public LocalProcessor(StringBuilder processorName, Long period, StringBuilder processorVersion, Integer valueOfCheap,
                           Scanner informationScanner, LinkedList<String> stringArrayList) {
@@ -40,9 +41,15 @@ public class LocalProcessor {
     @ListIteratorAnnotation
     public void listIterator(LinkedList<String> stringList) {
         stringArrayList = new LinkedList<>(stringList);
-        for (String item : stringList) {
-            System.out.println(item.hashCode());
+        try {
+            for (String item : stringList) {
+                System.out.println(item.hashCode());
+            }
         }
+       catch (IllegalArgumentException e){
+            e.printStackTrace();
+           System.out.println(e.getMessage());
+       }
     }
 
     @FullNameProcessorGeneratorAnnotation
