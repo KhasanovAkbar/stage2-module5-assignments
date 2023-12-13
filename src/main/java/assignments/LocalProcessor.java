@@ -31,7 +31,7 @@ public class LocalProcessor {
         this.stringArrayList = new LinkedList<>(stringArrayList);
     }
 
-    public Scanner getinformationScanner() {
+    public Scanner getInformationScanner() {
         return informationScanner;
     }
     public LocalProcessor() {
