@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 @Getter
 @Setter
@@ -20,7 +21,7 @@ public class LocalProcessor {
     private StringBuilder processorVersion;
     private Integer valueOfCheap;
     private Scanner informationScanner;
-    private  List<String> stringArrayList = new LinkedList<>();
+    private List<String> stringArrayList = new LinkedList<>();
 
     public LocalProcessor(StringBuilder processorName, Long period, StringBuilder processorVersion, Integer valueOfCheap,
                           Scanner informationScanner, LinkedList<String> stringArrayList) {
@@ -35,21 +36,23 @@ public class LocalProcessor {
     public Scanner getInformationScanner() {
         return informationScanner;
     }
+
     public LocalProcessor() {
     }
 
     @ListIteratorAnnotation
     public void listIterator(LinkedList<String> stringList) {
         stringArrayList = new LinkedList<>(stringList);
-        try {
-            for (String item : stringList) {
+
+        for (String item : stringList) {
+            try {
                 System.out.println(item.hashCode());
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                Logger.getLogger(e.getMessage());
+
             }
         }
-       catch (IllegalArgumentException e){
-            e.printStackTrace();
-           System.out.println(e.getMessage());
-       }
     }
 
     @FullNameProcessorGeneratorAnnotation
